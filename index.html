@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perimeter Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        label, input, button {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Perimeter Calculator</h1>
+    <form id="perimeterForm">
+        <label for="length">Length (in units):</label>
+        <input type="number" id="length" required><br>
+        
+        <label for="width">Width (in units):</label>
+        <input type="number" id="width" required><br>
+        
+        <button type="button" onclick="calculatePerimeter()">Calculate Perimeter</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculatePerimeter() {
+            // Get values from the input fields
+            var length = parseFloat(document.getElementById('length').value);
+            var width = parseFloat(document.getElementById('width').value);
+            
+            // Check if the input values are valid numbers
+            if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+                alert('Please enter valid positive numbers for length and width.');
+                return;
+            }
+            
+            // Calculate the perimeter of a rectangle: 2 * (length + width)
+            var perimeter = 2 * (length + width);
+            
+            // Display the result
+            document.getElementById('result').innerHTML = 'The perimeter of the rectangle is: ' + perimeter + ' units';
+        }
+    </script>
+
+</body>
+</html>
+
